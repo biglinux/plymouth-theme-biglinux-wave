@@ -1,0 +1,68 @@
+### Standard Background
+
+
+SpriteWindowSetBackgroundTopColor(0.00, 0.00, 0.00);
+SpriteWindowSetBackgroundBottomColor(0.00, 0.00, 0.00);
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+label_image = Image("label.png");
+label_sprite = Sprite(label_image);
+label_sprite.SetX(Window.GetWidth()  / 2  - ImageGetWidth(label_image) / 2);
+label_sprite.SetY(Window.GetHeight() / 2 - ImageGetHeight(label_image) / 2);
+label_sprite.SetZ(10000);
+label_sprite.SetOpacity(0.7);
+
+index = 0;
+while (1){
+    index_string = index;
+    if (index < 10) index_string = "0" + index_string;
+    frame_image[index] = ImageNew("throbber-" + index_string + ".png");
+    if (!frame_image[index]) break;
+
+    index++;
+    }
+frame_count = 14;
+frame_index = 10;
+
+throbber_sprite = SpriteNew();
+
+fun refresh (){
+    if (status == "normal"){
+        frame_index += 0.2;
+        frame_index %= frame_count;
+        int_frame_index = MathInt(frame_index);
+
+        scaled = frame_image[int_frame_index];
+
+        index++;
+
+        SpriteSetImage (throbber_sprite, scaled);
+        SpriteSetX (throbber_sprite, SpriteWindowGetWidth() / 2 - ImageGetWidth(scaled)  / 2);
+        SpriteSetY (throbber_sprite, SpriteWindowGetHeight() / 2 - ImageGetHeight(scaled) / 2);
+        SpriteSetOpacity (throbber_sprite, 1);
+        }
+    else{
+        SpriteSetOpacity (throbber_sprite, 0);
+        }
+    }
+
+PlymouthSetRefreshFunction (refresh);
+
+status = "normal";
+
+#----------------------------------------- Message --------------------------------
+message_sprite = Sprite();
+message_sprite.SetPosition(10, 10, 10000);
+
+fun message (text)
+{
+	my_image = Image.Text(text, 0.6, 0.6, 0.6);
+	message_sprite.SetImage(my_image);
+	message_sprite.SetX(Window.GetWidth ()  / 2 - my_image.GetWidth()  / 2);
+	message_sprite.SetY(Window.GetHeight () - my_image.GetHeight());
+	message.sprite.SetZ(11);
+    }
+
+Plymouth.SetMessageFunction(message);

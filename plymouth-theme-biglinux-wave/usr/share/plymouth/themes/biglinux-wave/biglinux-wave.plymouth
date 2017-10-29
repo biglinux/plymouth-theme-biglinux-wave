@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Big Wave
+Description=Big Linux Splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/biglinux-wave
+ScriptFile=/usr/share/plymouth/themes/biglinux-wave/biglinux-wave.script
+

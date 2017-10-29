@@ -1,0 +1,12 @@
+Package: plymouth-theme-biglinux-wave
+Version: 1.0.0-1big1
+Depends: plymouth
+Architecture: all
+Maintainer: Bruno Goncalves <www.biglinux.com.br>
+Section: admin
+Priority: optional
+Installed-Size:324
+Description: Plymouth theme for BigLinux made by Lunimare
+
+
+
