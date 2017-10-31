@@ -1,4 +1,4 @@
-# Plymouth theme
+# Plymouth theme nice code
 
 One Paragraph of project description goes here
 
